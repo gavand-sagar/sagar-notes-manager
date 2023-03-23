@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import Rating from '../../shared/components/Rating';
+import { TextField, Button, Typography, Tooltip } from '@mui/material'
 import { UserDataContext } from '../../shared/data';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 export default function Login() {
 
@@ -10,42 +11,50 @@ export default function Login() {
     const [value, setValue] = useState(0);
     const [value2, setValue2] = useState(0);
     const [passwordType, setPasswordType] = useState('password');
-    
+
     const { setUsernameGlobal } = useContext(UserDataContext)
 
     const navigate = useNavigate()
 
     function loginClick(e) {
-        if(username == "Sagar" && password == "123"){
+        if (username == "Sagar" && password == "123") {
             setUsernameGlobal("Sagar")
             navigate('/home')
-        }else{
+        } else {
             setUsernameGlobal("")
         }
     }
 
-    function clearUsername(){
-        if(passwordType == 'password'){
+    function clearUsername() {
+        if (passwordType == 'password') {
             setPasswordType('text')
-        }else{
+        } else {
             setPasswordType('password')
         }
     }
 
-    function apply(){
+    function apply() {
         setValue2(value)
     }
 
     return (
         <div>
             <div className='login-form'>
-                {/* <input value={value} onChange={e=>setValue(e.target.value)}></input>
-                <button onClick={apply}>Apply</button>
-                <Rating value={value2}/> */}
-                <button onClick={clearUsername}>Show/Hide Password</button>
-                <input value={username} onChange={(e) => setUsername(e.target.value)} type={'text'}></input>
-                <input value={password} onChange={e => setPassword(e.target.value)} type={passwordType}></input>
-                <button onClick={loginClick} type='button'>Login</button>
+
+
+                <Typography>Plese Login!!!</Typography>
+
+                <TextField label={'Username'} value={username} onChange={(e) => setUsername(e.target.value)} type={'text'}></TextField>
+
+                <div style={{ position: 'relative' }}>
+                    <TextField label={'Password'} value={password} onChange={e => setPassword(e.target.value)} type={passwordType}></TextField>
+                    <VisibilityIcon style={{ position: 'absolute', right: '0', top: '10px' }} onClick={clearUsername} />
+                </div>
+
+                <Tooltip title="Login">
+                    <Button variant='contained' onClick={loginClick} type='button'>Login</Button>
+                </Tooltip>
+
             </div>
         </div>
     )

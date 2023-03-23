@@ -18,19 +18,9 @@ function App() {
   return (
     <div>
 
-      <Square />
-
-
-      <h1>Sagar E-Com</h1>
-
-      {/* <Header />
-
-      <Toggle/> */}
-
-      {/* <UserInfo firstName="Sagar"/> */}
-
+      <Header />
       <hr />
-      {/* <Routes>
+      <Routes>
         <Route path='/home' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/login' element={<Login />} />
@@ -39,7 +29,7 @@ function App() {
         <Route path='/privacy' element={<ProtectedRoute><Privacy /></ProtectedRoute>} />
         <Route path='/' element={<button>No path so this</button>} />
         <Route path='*' element={<button>Page Not Found</button>} />
-      </Routes> */}
+      </Routes>
       <hr />
 
     </div>

@@ -1,0 +1,40 @@
+.user-info{
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: rgb(236, 227, 217);
+}
+
+.my-button{
+  background-color: black;
+  color: aliceblue;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 3px;
+  display: inline-block;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.active{
+  background-color: orange;
+  color: black;
+}
+
+.border{
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.login-form{
+  display: inline-flex;
+  width: 300px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: beige;
+  padding: 30px;
+  gap: 20px;
+}

@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Typography, Tooltip } from '@mui/material'
 import { UserDataContext } from '../../shared/data';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { useForm } from 'react-hook-form';
 
 export default function Login() {
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+
     const [value, setValue] = useState(0);
     const [value2, setValue2] = useState(0);
     const [passwordType, setPasswordType] = useState('password');
@@ -16,8 +18,11 @@ export default function Login() {
 
     const navigate = useNavigate()
 
-    function loginClick(e) {
-        if (username == "Sagar" && password == "123") {
+    function loginClick(formObj) {
+
+        alert('Username : ' + formObj.username)
+
+        if (formObj.username == "Sagar" && formObj.password == "123") {
             setUsernameGlobal("Sagar")
             navigate('/home')
         } else {
@@ -40,21 +45,20 @@ export default function Login() {
     return (
         <div>
             <div className='login-form'>
+                <form onSubmit={handleSubmit(loginClick)}>
+                    <Typography>Plese Login!!!</Typography>
 
+                    <TextField error={errors.username} helperText={errors.username?.message}  {...register('username', { required: "Username is required" })} label={'Username'} type={'text'}></TextField>
 
-                <Typography>Plese Login!!!</Typography>
+                    <div style={{ position: 'relative' }}>
+                        <TextField error={errors.password} helperText={errors.password?.message} {...register('password', { required: "Passord is required" })} label={'Password'} type={passwordType}></TextField>
+                        <VisibilityIcon style={{ position: 'absolute', right: '0', top: '10px' }} onClick={clearUsername} />
+                    </div>
 
-                <TextField label={'Username'} value={username} onChange={(e) => setUsername(e.target.value)} type={'text'}></TextField>
-
-                <div style={{ position: 'relative' }}>
-                    <TextField label={'Password'} value={password} onChange={e => setPassword(e.target.value)} type={passwordType}></TextField>
-                    <VisibilityIcon style={{ position: 'absolute', right: '0', top: '10px' }} onClick={clearUsername} />
-                </div>
-
-                <Tooltip title="Login">
-                    <Button variant='contained' onClick={loginClick} type='button'>Login</Button>
-                </Tooltip>
-
+                    <Tooltip title="Login">
+                        <Button variant='contained' type='submit'>Login</Button>
+                    </Tooltip>
+                </form>
             </div>
         </div>
     )

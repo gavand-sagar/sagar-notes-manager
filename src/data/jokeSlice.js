@@ -9,7 +9,7 @@ export const getAJoke = createAsyncThunk('getAJoke', () => {
 const JokeSlice = createSlice({
     name: 'joke',
     initialState: {
-        joke: '',
+        joke: {},
         loadingJoke: false
     },
     extraReducers: (builder) => {

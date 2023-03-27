@@ -33,6 +33,14 @@ export default function Header() {
             <Link to={'/random-user'}>
                 <FancyButton>Random User</FancyButton>
             </Link>
+
+            <Link to={'/add-song'}>
+                <FancyButton>Add Song</FancyButton>
+            </Link>
+
+            <Link to={'/songs-list'}>
+                <FancyButton>Song List</FancyButton>
+            </Link>
         </div>
     )
 }

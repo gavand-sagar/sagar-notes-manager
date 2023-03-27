@@ -12,6 +12,8 @@ import UserInfo from './UserInfo';
 import Toggle from './Toggle';
 import Square from './Square';
 import RandomUser from './pages/RandomUser/RandomUser';
+import AddSong from './pages/AddSong/AddSong';
+import SongsList from './pages/SongList/SongsList';
 
 
 function App() {
@@ -26,6 +28,9 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/random-user' element={<RandomUser />} />
         <Route path='/sign-up' element={<Signup />} />
+        <Route path='/gallery' element={<Gallery />} />
+        <Route path='/add-song' element={<AddSong />} />
+        <Route path='/songs-list' element={<SongsList />} />
         <Route path='/gallery' element={<Gallery />} />
         <Route path='/privacy' element={<ProtectedRoute><Privacy /></ProtectedRoute>} />
         <Route path='/' element={<button>No path so this</button>} />

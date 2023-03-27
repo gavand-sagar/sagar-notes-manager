@@ -41,6 +41,12 @@ export default function Header() {
             <Link to={'/songs-list'}>
                 <FancyButton>Song List</FancyButton>
             </Link>
+
+            <Link to={'/jokes'}>
+                <FancyButton>Jokes</FancyButton>
+            </Link>
+
+            
         </div>
     )
 }

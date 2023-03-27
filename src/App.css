@@ -1,4 +1,4 @@
-.user-info{
+.user-info {
   border: 1px solid black;
   margin: 10px;
   padding: 10px;
@@ -6,7 +6,7 @@
   background-color: rgb(236, 227, 217);
 }
 
-.my-button{
+.my-button {
   background-color: black;
   color: aliceblue;
   padding: 10px;
@@ -17,18 +17,18 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.active{
+.active {
   background-color: orange;
   color: black;
 }
 
-.border{
+.border {
   margin: 10px;
   padding: 10px;
   border: 1px solid black;
 }
 
-.login-form{
+.login-form {
   display: inline-flex;
   width: 300px;
   flex-direction: column;
@@ -39,11 +39,39 @@
 }
 
 
-.song-item{
+.song-item {
   margin: 10px;
-  border: 1px solid rgb(41, 70, 187);
   padding: 10px;
+  border: 1px solid rgb(41, 70, 187);
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
+}
+
+.joke {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid rgb(41, 70, 187);
   border-radius: 5px;
+  max-width: 300px;
+}
+
+.punchline {
+  animation: grow 2 1s linear
+}
+
+@keyframes grow {
+
+  25% {
+    rotate: 30deg;
+  }
+
+  50% {
+    rotate: -30deg;
+  }
+
+  75% {
+    rotate: 0;
+  }
+
 }

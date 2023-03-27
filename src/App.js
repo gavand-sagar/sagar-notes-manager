@@ -14,6 +14,7 @@ import Square from './Square';
 import RandomUser from './pages/RandomUser/RandomUser';
 import AddSong from './pages/AddSong/AddSong';
 import SongsList from './pages/SongList/SongsList';
+import Jokes from './pages/Jokes/Jokes';
 
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
         <Route path='/add-song' element={<AddSong />} />
         <Route path='/songs-list' element={<SongsList />} />
         <Route path='/gallery' element={<Gallery />} />
+        <Route path='/jokes' element={<Jokes />} />
+
         <Route path='/privacy' element={<ProtectedRoute><Privacy /></ProtectedRoute>} />
         <Route path='/' element={<button>No path so this</button>} />
         <Route path='*' element={<button>Page Not Found</button>} />

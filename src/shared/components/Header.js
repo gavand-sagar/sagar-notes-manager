@@ -46,7 +46,11 @@ export default function Header() {
                 <FancyButton>Jokes</FancyButton>
             </Link>
 
-            
+            <Link to={'/ClassBaseDemo'}>
+                <FancyButton>ClassBaseDemo</FancyButton>
+            </Link>
+
+
         </div>
     )
 }

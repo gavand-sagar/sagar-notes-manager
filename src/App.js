@@ -16,6 +16,7 @@ import AddSong from './pages/AddSong/AddSong';
 import SongsList from './pages/SongList/SongsList';
 import Jokes from './pages/Jokes/Jokes';
 import MyPortalForHeader from './MyPortalForHeader';
+import ClassBaseDemo from './pages/ClassBaseDemo/ClassBaseDemo';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
   return (
     <div>
       <Header />
-      
+
       <hr />
       <Routes>
         <Route path='/home' element={<Home />} />
@@ -36,6 +37,7 @@ function App() {
         <Route path='/songs-list' element={<SongsList />} />
         <Route path='/gallery' element={<Gallery />} />
         <Route path='/jokes' element={<Jokes />} />
+        <Route path='/ClassBaseDemo' element={<ClassBaseDemo />} />
 
         <Route path='/privacy' element={<ProtectedRoute><Privacy /></ProtectedRoute>} />
         <Route path='/' element={<button>No path so this</button>} />
@@ -44,7 +46,7 @@ function App() {
       <hr />
 
 
-      
+
     </div>
   )
 

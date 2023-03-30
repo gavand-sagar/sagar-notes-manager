@@ -50,6 +50,11 @@ export default function Header() {
                 <FancyButton>ClassBaseDemo</FancyButton>
             </Link>
 
+            <Link to={'/lifecycle'}>
+                <FancyButton>lifecycle</FancyButton>
+            </Link>
+
+            
 
         </div>
     )

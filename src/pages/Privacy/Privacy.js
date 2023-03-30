@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import { Skeleton } from '@mui/material'
+import React, { lazy, Suspense, useState } from 'react'
+// import Capitalize from '../../Capitalize'
 import { useDispatch, useSelector } from 'react-redux'
-import { incrementCart,changeTotal } from '../../data/cartSlice'
+import { incrementCart, changeTotal } from '../../data/cartSlice'
+const Capitalize = lazy(() => import('../../Capitalize'))
 
 export default function Privacy() {
 
@@ -22,6 +25,13 @@ export default function Privacy() {
 
   return (
     <div>
+
+      <Suspense fallback={<Skeleton height={500}/>}>
+        <Capitalize label={'sagar'} />
+      </Suspense>
+
+
+      <hr />
       <div>Privacy </div>
       <div>the cart has {cartCount} items ; selected from {productCount} products <br /></div>
       <button onClick={increment}>Increment</button>

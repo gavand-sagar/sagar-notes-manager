@@ -2,6 +2,7 @@ import { Skeleton } from '@mui/material';
 import React, { useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getFact } from '../../data/catFactSlice';
+import MyPortalForHeader from '../../MyPortalForHeader';
 import { useRouteProtector } from '../../shared/hooks/useRouteProtector';
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
   return (
     <div>
       <button onClick={loadFact}>Load Fact</button>
+      <MyPortalForHeader value={'home'}/>
       <hr />
       {
         loadingFact ? <Skeleton height={50}/> : <p>{fact}</p>

@@ -15,6 +15,7 @@ import RandomUser from './pages/RandomUser/RandomUser';
 import AddSong from './pages/AddSong/AddSong';
 import SongsList from './pages/SongList/SongsList';
 import Jokes from './pages/Jokes/Jokes';
+import MyPortalForHeader from './MyPortalForHeader';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
   return (
     <div>
       <Header />
+      
       <hr />
       <Routes>
         <Route path='/home' element={<Home />} />
@@ -41,6 +43,8 @@ function App() {
       </Routes>
       <hr />
 
+
+      
     </div>
   )
 

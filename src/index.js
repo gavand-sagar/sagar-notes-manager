@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import DataProviderHOC from './shared/components/DataProviderHOC';
 import { Provider } from 'react-redux';
 import { store } from './data/store';
+import MyPortalForHeader from './MyPortalForHeader';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

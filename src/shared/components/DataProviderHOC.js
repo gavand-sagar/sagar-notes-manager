@@ -4,12 +4,12 @@ import { UserDataContext } from '../data'
 
 function useLocalStorage(keyname) {
   const [username, setUsername] = useState(localStorage.getItem(keyname))
-  
+
   function setUsernameGlobal(value) {
     localStorage.setItem(keyname, value)
     setUsername(value)
   }
-  
+
   return [username, setUsernameGlobal]
 }
 
@@ -25,6 +25,7 @@ export default function DataProviderHOC({ children }) {
 
 
   const [username, setUsernameGlobal] = useLocalStorage('app-global-user-name')
+  const [token, setToken] = useLocalStorage('app-global-token')
 
 
   const [email, setEmail] = useState('Sagar@trainitsolutions.com')
@@ -32,7 +33,7 @@ export default function DataProviderHOC({ children }) {
 
 
   return (
-    <UserDataContext.Provider value={{ username, email, setUsernameGlobal }}>
+    <UserDataContext.Provider value={{ username, email, token, setUsernameGlobal, setToken }}>
       {children}
     </UserDataContext.Provider>
   )

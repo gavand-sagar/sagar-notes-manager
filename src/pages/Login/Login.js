@@ -4,6 +4,7 @@ import { TextField, Button, Typography, Tooltip } from '@mui/material'
 import { UserDataContext } from '../../shared/data';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useForm } from 'react-hook-form';
+import { commonGet } from '../../shared/utils/utils';
 
 export default function Login() {
 
@@ -14,20 +15,24 @@ export default function Login() {
     const [value2, setValue2] = useState(0);
     const [passwordType, setPasswordType] = useState('password');
 
-    const { setUsernameGlobal } = useContext(UserDataContext)
+    const { setUsernameGlobal,setToken } = useContext(UserDataContext)
 
     const navigate = useNavigate()
 
     function loginClick(formObj) {
 
-        alert('Username : ' + formObj.username)
-
-        if (formObj.username == "Sagar" && formObj.password == "123") {
-            setUsernameGlobal("Sagar")
-            navigate('/home')
-        } else {
-            setUsernameGlobal("")
-        }
+        let url = '/authenticate?username='+formObj.username+'&password=' + formObj.password
+        commonGet(url)
+        .then(response=>{
+            if(response.authenticated == true){
+                setUsernameGlobal(formObj.username)
+                setToken(response.token)
+                navigate('/home')
+            }else{
+                alert("incorrect username or password ")
+                setUsernameGlobal("")
+            }
+        })
     }
 
     function clearUsername() {

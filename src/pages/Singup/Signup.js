@@ -3,7 +3,7 @@ import { UserDataContext } from '../../shared/data';
 
 export default function Signup() {
 
-    
+
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -15,13 +15,25 @@ export default function Signup() {
 
     function signupClick() {
         if (role) {
-            setObj({
+            let formData = {
                 username,
                 password,
                 email,
                 role
-            })
+            }
 
+            fetch('http://localhost:3001/sign-up', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(x => x.json())
+                .then(data => {
+                    
+                    alert("User Added")
+                })
 
         } else {
             alert('pick a role')

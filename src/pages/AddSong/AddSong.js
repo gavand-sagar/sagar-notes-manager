@@ -2,7 +2,7 @@ import { Button, TextField } from '@mui/material'
 import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux';
-import { addSong } from '../../data/songSlice';
+import { setSongs } from '../../data/songSlice';
 import { UserDataContext } from '../../shared/data';
 import { commonPost } from '../../shared/utils/utils';
 
@@ -13,13 +13,9 @@ export default function AddSong() {
 
 
     function save(formData) {
-        // add this song in redux state
-        //dispatch(addSong(formData))
-
-
             commonPost('/songs',formData)
             .then(data => {
-
+                dispatch(setSongs(data))
                 alert("Song Added")
             })
 

@@ -22,7 +22,7 @@ export default function Signup() {
                 role
             }
 
-            fetch('https://fsd-jan-server.onrender.com/sign-up', {
+            fetch(process.env.REACT_APP_BACKEND_URL+'/sign-up', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

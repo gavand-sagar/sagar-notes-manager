@@ -1,8 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { commonGet } from "../shared/utils/utils";
+import { commonGet, commonPost } from "../shared/utils/utils";
 
 export const fetchSongs = createAsyncThunk('fetchSongs',()=>{
     return commonGet('/songs')
+})
+
+export const createSong = createAsyncThunk('createSong',(data)=>{
+    return commonPost('/songs',data)
 })
 
 const songSlice = createSlice({
@@ -29,6 +33,17 @@ const songSlice = createSlice({
         builder.addCase(fetchSongs.fulfilled,(state,action)=>{
             state.songs = [...action.payload]
             state.isSongLoading = false;
+        })
+
+
+       
+        //while api is pending
+        builder.addCase(createSong.pending,(state,action)=>{
+            
+        })
+        // valid api response
+        builder.addCase(createSong.fulfilled,(state,action)=>{
+            state.songs = [...action.payload]
         })
     }
 })

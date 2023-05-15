@@ -22,7 +22,7 @@ export default function Signup() {
                 role
             }
 
-            fetch('http://localhost:3001/sign-up', {
+            fetch('https://fsd-jan-server.onrender.com/sign-up', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

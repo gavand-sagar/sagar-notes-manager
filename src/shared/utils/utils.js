@@ -22,6 +22,14 @@ export function commonPost(url,data){
             .then(x => x.json())
 }
 
+export function commonRawPost(url,data){
+    return fetch(process.env.REACT_APP_BACKEND_URL + url, {
+            method: 'POST',
+            body: data
+        })
+        .then(x => x.json())
+}
+
 
 export function commonPut(url,data){
     let token = localStorage.getItem('app-global-token')

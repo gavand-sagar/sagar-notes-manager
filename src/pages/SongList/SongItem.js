@@ -16,6 +16,7 @@ export default function SongItem({ song }) {
     }
     return (
         <div className='song-item' onClick={deleteSong}>
+            <div><img height={100} width={100} src={'http://localhost:3001/image/' + song.songImage} /></div>
             <div>{song.songName}</div>
             <div>{song.rating}</div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { UserDataContext } from '../../shared/data';
+import FileUpload from '../../shared/components/FileUpload';
 
 export default function Signup() {
 
@@ -9,6 +10,7 @@ export default function Signup() {
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [role, setRole] = useState('');
+    const [avatar,setUserImage] = useState('')
 
     const [obj, setObj] = useState({});
 
@@ -19,7 +21,8 @@ export default function Signup() {
                 username,
                 password,
                 email,
-                role
+                role,
+                avatar
             }
 
             fetch(process.env.REACT_APP_BACKEND_URL+'/sign-up', {
@@ -50,6 +53,9 @@ export default function Signup() {
                     <option >Admin</option>
                     <option >Guest</option>
                 </select>
+
+                <FileUpload onUpload={n=>setUserImage(n)}/>
+
 
                 <input value={username} onChange={e => setUsername(e.target.value)} name='username' placeholder='username' type={'text'}></input>
                 {!username && <span>Username is Required</span>}

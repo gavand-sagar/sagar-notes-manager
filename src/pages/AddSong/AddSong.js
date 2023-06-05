@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { UserDataContext } from '../../shared/data';
 import { createSong } from '../../data/songSlice';
 import { commonRawPost } from '../../shared/utils/utils';
+import FileUpload from '../../shared/components/FileUpload';
 
 export default function AddSong() {
     const { register, handleSubmit } = useForm();
@@ -17,28 +18,12 @@ export default function AddSong() {
         dispatch(createSong(formData))
     }
 
-    function upload(){
-        const avatar = document.getElementById('app-file-upload').files[0]
-        uploadFile(avatar)
-    }
-
-    function uploadFile(avatar) {
-        let data = new FormData();
-        data.append('myFile', avatar)
-        commonRawPost('/app-image-upload',data).then(x=>{
-            setFileName(x.filename)
-        })
-    }
+    
 
     return (
         <div>
             <form onSubmit={handleSubmit(save)}>
-                <input id="app-file-upload" onChange={upload} label="Song Image" type='file' />
-                <br />
-                <br />
-                <img src={'http://localhost:3001/image/' + fileName}/>
-                <br />
-                <br />
+                <FileUpload onUpload={(name)=>setFileName(name)}/>
                 <TextField label="Song Name" {...register('songName')} />
                 <br />
                 <br />

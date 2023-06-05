@@ -75,3 +75,17 @@
   }
 
 }
+
+
+#app-file-upload{
+  display: none;
+}
+
+.file-upload-component{
+  box-sizing: border-box;
+  padding: 5px;
+  margin: 15px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 100px;
+}
